@@ -1,0 +1,11 @@
+package apis;
+
+import java.util.List;
+
+public interface DataStorageInterface {
+	
+
+	public List<Integer> input(String input);
+	public String outPut(List<Integer> l);
+
+}
