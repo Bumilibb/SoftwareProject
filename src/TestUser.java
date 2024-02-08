@@ -28,7 +28,7 @@ public class TestUser implements UserAPI{ //or UserInterface the naming on it is
     }
 
     @Override
-    public void String executeCompute(List<Integer> l){
+    public String executeCompute(List<Integer> l){
         // EMPTY
         return ""; 
     }
