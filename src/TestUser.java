@@ -1,9 +1,9 @@
 import java.util.List;
 
-public class TestUser implements UserAPI{
-    private computeEngineInterface computeEngine;
+public class TestUser implements UserAPI{ //or UserInterface the naming on it is not clear
+    private ComputeEngineInterface computeEngine;
 
-    public TestUser(computeEngineInterface computeEngine) {
+    public TestUser(ComputeEngineInterface computeEngine) {
         this.computeEngine = computeEngine;
     }
     
@@ -28,7 +28,7 @@ public class TestUser implements UserAPI{
     }
 
     @Override
-    public void String executeCompute(List<Integer> 1){
+    public void String executeCompute(List<Integer> l){
         // EMPTY
         return ""; 
     }
