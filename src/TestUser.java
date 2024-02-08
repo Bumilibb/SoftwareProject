@@ -18,12 +18,12 @@ public class TestUser implements UserAPI{ //or UserInterface the naming on it is
     }
 
     @Override
-    public void setInputDelimeter(String InDeli) {
+    public void setInputDelimeter(String inDeli) {
         // Empty
     }
 
     @Override
-    public void setOutputDelimeter(String OutDeli) {
+    public void setOutputDelimeter(String outDeli) {
         // Empty
     }
 
