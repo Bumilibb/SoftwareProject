@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class TestUser implements UserAPI{ //or UserInterface the naming on it is not clear
-    private ComputeEngineInterface computeEngine;
+    private ComputeEngineAPI computeEngine;
 
-    public TestUser(ComputeEngineInterface computeEngine) {
+    public TestUser(ComputeEngineAPI computeEngine) {
         this.computeEngine = computeEngine;
     }
     

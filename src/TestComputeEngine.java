@@ -1,28 +1,28 @@
+
 import java.util.ArrayList;
 import java.util.List;
+public class TestComputeEngine implements ComputeEngineAPI {
+    private DataStorageAPI dataStorage; 
 
-public class TestComputeEngine implements ComputeEngineInterface {
-    // private DataStorageAPI dataStorage; //or DataStorageInterface 
-    // private UserAPI userAPI; // UserInterface
-
-    public void testComputeEngine() {
-        //empty constructor
+    public TestComputeEngine(DataStorageAPI dataStorage) {
+        this.dataStorage = dataStorage;
     }
 
     @Override
     public void initializeJob() {
-        // Empty
+        // This method will be used to initialize computation jobs
     }
 
     @Override
     public void readInput(List<Integer> input) {
-        // Empty
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'readInput'");
     }
 
     @Override
     public List<List<Integer>> writeOutput() {
-        //Empty 
-        return new ArrayList<List<Integer>>();
+        // This method will write the computation results to the data storage
+        return new ArrayList<>();
     }
     
     @Override
