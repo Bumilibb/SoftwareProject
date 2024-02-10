@@ -1,1 +1,17 @@
+package apis;
+
+import java.util.List;
+
+public interface UserInterface {
+	
+	public void setInputSource(String source);
+	public void setOutputSource(String destination);
+	public void setInputDelimiter(String inD);
+	public void setOutputDelimiter(String outD);
+	
+	public String executeComputaion(List<Integer> l); 
+	
+
+}
+
 
