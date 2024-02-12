@@ -1,5 +1,10 @@
 import java.util.List;
 
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import static org.mockito.Mockito.*;
+
 public class TestUser implements UserAPI{ //or UserInterface the naming on it is not clear
     private ComputeEngineAPI computeEngine;
 
@@ -32,6 +37,19 @@ public class TestUser implements UserAPI{ //or UserInterface the naming on it is
         // EMPTY
         return ""; 
     }
+    @Test
+    public void testUser() {
+       
+        DataStorageAPI dataStorageMock = mock(DataStorageAPI.class);
+
+            User user = new User(dataStorageMock);
+
+    
+        user.testmethod();
+
+      
+    }
+
 }
 
 
