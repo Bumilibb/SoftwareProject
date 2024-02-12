@@ -1,9 +1,22 @@
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import static org.mockito.Mockito.*;
+
 public class TestComputeEngine implements ComputeEngineAPI {
     private DataStorageAPI dataStorage; 
 
+     @Test
+    public void testCompute(){
+        ComputeEngineAPI mockDatabase = Mockito.mock(ComputeEngineAPI.class);
+        when(mockDatabase.compute(any(String.class))).thenReturn("1");
+        mockDatabase.compute(1);
+    }
+    
     public TestComputeEngine(DataStorageAPI dataStorage) {
         this.dataStorage = dataStorage;
     }
