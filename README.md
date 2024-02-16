@@ -1,24 +1,10 @@
-# HW-1
+## Project Computation Description:
 
-Setting up Github 
-![System Diagram](https://github.com/Ariel6789/HW-1/blob/main/IMG_1646.jpeg?raw=true)
-![System Diagram1](image.png)
+Calculate all prime factors of a given positive integer.
+##### Input: A single positive integer n, where 1 ≤ n < Integer.MAX_VALUE.
+##### Output: A list of prime factors of n.
+---
+### System Diagram:
+![System Diagram for softeng](https://github.com/Ariel6789/HW-1/assets/157422509/eb69617d-7cbf-4a6d-bca3-10bee677463b)
 
-EXAMPLE INPUT 
-{
-    inputType: "json", //indicates the format of the input, JSON
-    data: "{\"number\": 30}", //contains the actual data tobe processed
-    outputType: "json", // specifies how the output should be formatted
-    outputData: "" // initially empty, as it will be filled  with the result of the computation
-}
-
-EXAMPLE OUTPUT
-{
-    outputType: json,
-    data: {
-        number: 30,
-        primeFactors: [2, 3, 5],
-        divisors: [1, 2, 3, 5, 6, 10, 15, 30],
-        visualization: "image",
-    }
-}
+---
