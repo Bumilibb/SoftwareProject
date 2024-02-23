@@ -1,4 +1,4 @@
-package edu.softwareeng.sample;
+
 
 /**
  * API 2: Process-level API between the compute engine and the layer that knows how to read/write 
@@ -18,7 +18,7 @@ package edu.softwareeng.sample;
  * boundary, we can't rely on Java Exceptions to propagate across it, so the error values must
  * be handled with the return type
  */
-public interface DataStorage {
+public interface DataStore {
 	Iterable<Integer> read(InputConfig input);
 	WriteResult appendSingleResult(OutputConfig output, String result);
 }

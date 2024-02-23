@@ -1,5 +1,3 @@
-package edu.softwareeng.sample;
-
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ import org.mockito.Mockito;
 public class ComputeEngineIntegrationTest {
 
 	@Test
-	public void testComputeWorkflow() {
+	public void TestComputeWorkflow() {
 		// For an integration test, we'll have multiple components with actual implementations,
 		// because we're testing how they work together
 		ComputeEngine engine = new ComputeEngineImpl();

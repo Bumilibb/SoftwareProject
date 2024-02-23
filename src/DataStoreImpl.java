@@ -1,8 +1,6 @@
-package edu.softwareeng.sample;
-
 import java.util.Collections;
 
-import edu.softwareeng.sample.WriteResult.WriteResultStatus;
+//import edu.softwareeng.sample.WriteResult.WriteResultStatus;
 
 public class DataStoreImpl implements DataStore {
 
