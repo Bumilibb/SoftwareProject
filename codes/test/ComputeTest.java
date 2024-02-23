@@ -1,5 +1,9 @@
+package test;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import src.ComputeEngine;
+import src.ComputeEngineImpl;
 
 public class ComputeTest {
 

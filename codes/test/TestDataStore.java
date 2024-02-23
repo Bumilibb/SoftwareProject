@@ -1,7 +1,13 @@
+package test;
+import src.DataStore;
+import src.InputConfig;
+import src.OutputConfig;
+import src.WriteResult;
+
 /** 
  * Test-only implementation of DataStore that handles in-memory inputs and outputs
  */
-public class TestDataStore implements DataStore {
+public class TestDataStore implements DataStore{
 
 	@Override
 	public Iterable<Integer> read(InputConfig input) {

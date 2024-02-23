@@ -1,6 +1,13 @@
+package test;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import src.DataStore;
+import src.DataStoreImpl;
+import src.InputConfig;
+import src.OutputConfig;
+import src.WriteResult.WriteResultStatus;
 
 //import edu.softwareeng.sample.WriteResult.WriteResultStatus;
 

@@ -1,3 +1,4 @@
+package src;
 public interface WriteResult {
 	WriteResultStatus getStatus();
 	

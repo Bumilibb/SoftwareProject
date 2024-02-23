@@ -1,3 +1,4 @@
+package test;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -6,6 +7,13 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import src.ComputationCoordinator;
+import src.ComputeEngine;
+import src.ComputeEngineImpl;
+import src.ComputeRequest;
+import src.ComputeResult;
+import src.CoordinatorImpl;
 
 public class ComputeEngineIntegrationTest {
 
