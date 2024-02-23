@@ -2,12 +2,14 @@ package src;
 
 import java.util.Collections;
 
+import src.WriteResult.WriteResultStatus;
+
 //import edu.softwareeng.sample.WriteResult.WriteResultStatus;
 
 public class DataStoreImpl implements DataStore {
 
 	@Override
-	public Iterable<Integer> read(InputConfig input) {
+	public Iterable<Integer> read(InputConfig input, char delimeter) {
 		return Collections.emptyList(); // eventually this will be a stream, but for now always return 0 elements
 	}
 

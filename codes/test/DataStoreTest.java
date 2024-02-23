@@ -23,7 +23,7 @@ public class DataStoreTest {
 		InputConfig inputConfig = Mockito.mock(InputConfig.class);
 		
 		DataStore dataStore = new DataStoreImpl();
-		Assert.assertEquals(1L, dataStore.read(inputConfig));
+		Assert.assertEquals(1L, dataStore.read(inputConfig, 10));
 	}
 	
 	@Test
