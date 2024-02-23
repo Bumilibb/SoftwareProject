@@ -1,7 +1,16 @@
+package test;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import src.DataStore;
+import src.DataStoreImpl;
+import src.InputConfig;
+import src.OutputConfig;
+import src.WriteResult.WriteResultStatus;
+
+import java.util.Arrays;
+import java.util.List;
 //import edu.softwareeng.sample.WriteResult.WriteResultStatus;
 
 /*
@@ -16,21 +25,18 @@ public class DataStoreTest {
 		InputConfig inputConfig = Mockito.mock(InputConfig.class);
 		
 		DataStore dataStore = new DataStoreImpl();
-		Assert.assertEquals(1L, dataStore.read(inputConfig));
+		// Use iterable to list for assertion
+		List<Integer> expected = Arrays.asList(1, 2, 3); // Expected output
+		Iterable<Integer> actual = dataStore.read(inputConfig, 10);
+		Assert.assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void smokeTestWrite() {
-		// While there aren't any dependencies for this component, we can mock out the parameters
-		// This is optional; for simple parameters, if it's easier to use a real one (like String),
-		// feel free to do that
 		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
 		
 		DataStore dataStore = new DataStoreImpl();
-		
-		// assertEquals will use .equals, so this type of call is generally safe for any Object, but for enums you can also use ==
-		// Note that if your dummy implementation returns null, this will NPE - that's fine! As long as the test fails,
-		// the exact failure doesn't matter
-		Assert.assertEquals(WriteResultStatus.SUCCESS, dataStore.appendSingleResult(outputConfig, "result").getStatus());
+
+		 Assert.assertEquals(WriteResultStatus.SUCCESS, dataStore.appendSingleResult(outputConfig, "result").getStatus());
 	}
 }

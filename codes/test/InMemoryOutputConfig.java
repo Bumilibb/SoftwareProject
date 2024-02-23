@@ -1,5 +1,8 @@
+package test;
 import java.util.ArrayList;
 import java.util.List;
+
+import src.OutputConfig;
 
 public class InMemoryOutputConfig implements OutputConfig {
 	

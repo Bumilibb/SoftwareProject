@@ -1,3 +1,5 @@
+package src;
+
 public interface ComputeResult {
 	static ComputeResult SUCCESS = () -> Status.SUCCESS;
 	static ComputeResult FAILURE = () -> Status.FAILURE;

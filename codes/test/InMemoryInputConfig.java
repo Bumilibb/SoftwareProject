@@ -1,6 +1,9 @@
+package test;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import src.InputConfig;
 
 /* 
  * It's useful to keep this in the 'test' folder so it doesn't accidentally get used in the real implementation;
