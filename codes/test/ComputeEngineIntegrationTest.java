@@ -1,9 +1,6 @@
 package test;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,43 +8,33 @@ import org.mockito.Mockito;
 import src.ComputeEngine;
 import src.ComputeEngineImpl;
 import src.ComputeRequest;
-import src.ComputeResult;
 
 public class ComputeEngineIntegrationTest {
 
 	@Test
-	public void TestComputeWorkflow() {
-		// For an integration test, we'll have multiple components with actual implementations,
-		// because we're testing how they work together
+	public void testComputeWorkflow() {
+		
 		ComputeEngine engine = new ComputeEngineImpl();
 		
-		// Why is this an actual implementation and not a mock? With enough work, we could actually use
-		// mock objects to do this, but in general if you've got any actual logic to put into the methods,
-		// use a test-only implementation rather than building it at runtime with a mock
 		TestDataStore testDs = new TestDataStore();
-		
-		// Using the variable-length int constructor to avoid having to create an array and manually add all these values
-		// Small usability improvements add up over time, by the 5th or 10th test with this data type, this is
-		// going to seem really nice
+
 		InMemoryInputConfig input = new InMemoryInputConfig(1, 10, 25);
 		
 		InMemoryOutputConfig output = new InMemoryOutputConfig();
 		
-		// This could be a real implementation, a test implementation, or a mock; any of those is fine to use here
+		// This is the actual object we're testing
 		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
-		when(mockRequest.getInputConfig()).thenReturn(input);
-		when(mockRequest.getOutputConfig()).thenReturn(output);
-	
+		when(mockRequest.getInputConfig()).thenReturn(30);
+		//when(mockRequest.getOutputConfig()).thenReturn(output);
+		when(mockRequest.getDelimiter()).thenReturn(','); // Assuming the delimiter is for formatting output
 		
-		// Here, we're going to check the computation actually worked. What that means will depend on your computation.
-		// In this case, the expected output of a computation is just calling toString on the Integer (note: don't do this for your computation,
-		// it is very much *not* CPU intensive)
-		List<String> expected = new ArrayList<>();
-		expected.add("1");
-		expected.add("10");
-		expected.add("25");
+	 // Execute the computation
+	 int[] actualPrimeFactors = engine.computePrimeFactors(mockRequest.getInputConfig());
+        
+	 // Define the expected prime factors for the input number 30
+	 int[] expectedPrimeFactors = {2, 3, 5};
 		
-		// If everything worked, we should have written out these results to the output
-		Assert.assertEquals(expected, output.getOutputMutable());
+		  // Verify that the computed prime factors match the expected results
+		  Assert.assertArrayEquals(expectedPrimeFactors, actualPrimeFactors);
 	}
 }

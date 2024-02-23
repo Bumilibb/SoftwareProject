@@ -1,7 +1,7 @@
 package src;
 
 public interface ComputeRequest {
-	InputConfig getInputConfig();
-	OutputConfig getOutputConfig();
-	char getDelimeter();
+	int getInputConfig(); // Simplified for prime factorization
+	// int getOutputConfig(); 
+    char getDelimiter();
 }

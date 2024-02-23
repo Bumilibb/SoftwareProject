@@ -2,22 +2,22 @@ package src;
 
 public class ComputeRequestImpl implements ComputeRequest{
 
-    @Override
-    public InputConfig getInputConfig() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInputConfig'");
+    private int number;
+    private char delimiter;
+
+    public ComputeRequestImpl(int number, char delimiter) {
+        this.number = number;
+        this.delimiter = delimiter;
     }
 
     @Override
-    public OutputConfig getOutputConfig() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOutputConfig'");
+    public int getInputConfig() {
+         return this.number;
     }
 
     @Override
-    public char getDelimeter() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDelimeter'");
+    public char getDelimiter() {
+        return this.delimiter;
     }
 	
 }
