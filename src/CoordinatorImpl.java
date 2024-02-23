@@ -1,11 +1,9 @@
-package edu.softwareeng.sample;
-
 public class CoordinatorImpl implements ComputationCoordinator {
 	
-	private final DataStorage ds;
+	private final DataStore ds;
 	private final ComputeEngine ce;
 	
-	public CoordinatorImpl(DataStorage ds, ComputeEngine ce) {
+	public CoordinatorImpl(DataStore ds, ComputeEngine ce) {
 		this.ds = ds;
 		this.ce = ce;
 	}
