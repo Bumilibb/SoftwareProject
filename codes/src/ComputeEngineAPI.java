@@ -1,3 +1,4 @@
+package src;
 
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface ComputeEngineAPI {
 	public List<List<Integer>> writeOutput();
 
 	public void preformComputation();
+
+	public Object compute(int val);
 
 }
