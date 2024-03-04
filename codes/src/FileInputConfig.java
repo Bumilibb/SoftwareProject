@@ -12,4 +12,7 @@ public class FileInputConfig implements InputConfig {
 	public String getFileName() {
 		return fileName;
 	}
+	public <T> T accept(InputConfigVisitor<T> visitor) {
+        return visitor.visitFile(this);
+    }
 }

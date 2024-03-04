@@ -2,17 +2,17 @@ package src;
 
 public class ComputeRequestImpl implements ComputeRequest{
 
-    private int number;
+    private InputConfig inputConfig;
     private char delimiter;
 
-    public ComputeRequestImpl(int number, char delimiter) {
-        this.number = number;
+    public ComputeRequestImpl(InputConfig inputConfig, char delimiter) {
+        this.inputConfig = inputConfig;
         this.delimiter = delimiter;
     }
 
     @Override
-    public int getInputConfig() {
-         return this.number;
+    public InputConfig getInputConfig() {
+         return this.inputConfig;
     }
 
     @Override

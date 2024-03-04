@@ -2,6 +2,7 @@
 package src;
 
 public interface InputConfig {
+    
 
 	// Use generics to allow callers to specify a return type when they visit the input data
 	static interface InputConfigVisitor<T> {
