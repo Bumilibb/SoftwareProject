@@ -1,5 +1,6 @@
 package src;
 
+
 public class ComputeEngineImpl implements ComputeEngine, ComputationCoordinator {
 
 	@Override
@@ -40,10 +41,18 @@ public class ComputeEngineImpl implements ComputeEngine, ComputationCoordinator 
 	@Override
 	public ComputeResult compute(ComputeRequest request) {
 		@SuppressWarnings("unused")
-		DataStoreImpl dataStore = new DataStoreImpl();
+		DataStorageAPI dataStore = new DataStorageAPI();
 		@SuppressWarnings("unused")
-		int inputConfig = request.getInputConfig();
+		InputConfig inputConfig = request.getInputConfig();
 		return null;
 	}
+   
+    @Override
+    public String compute(int val) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compute'");
+    }
+
+   
 
 }

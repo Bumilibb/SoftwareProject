@@ -1,8 +1,7 @@
 package test;
 
-import src.CoordinatorCompute;
+import src.CoordinatorImpl;
 import src.DataStorageAPI;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,19 +15,19 @@ import test.TestUser;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import src.ComputeEngine;
+import src.ComputeEngineImpl;
 
 public class TestMultiUser {
 	
 	
-	private CoordinatorCompute coordinator;
+	private CoordinatorImpl coordinator;
+	
 	
 	@BeforeEach
 	public void initializeComputeEngine() {
-		coordinator = new CoordinatorCompute(new DataStorageAPI(), new ComputeEngine()); 
-			
-		}
-	
+		
+		coordinator = new CoordinatorImpl(new DataStorageAPI(), new ComputeEngineImpl());
+	}
 
 	@Test
 	public void compareMultiAndSingleThreaded() throws Exception {

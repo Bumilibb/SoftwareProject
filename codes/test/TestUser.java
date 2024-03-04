@@ -1,19 +1,17 @@
 package test;
 
 import java.io.File;
-
-import src.CoordinatorCompute;
+import src.CoordinatorImpl;
 import src.ComputeRequest;
 import src.ComputeResult;
 
+import org.junit.jupiter.api.Test;
 
 public class TestUser {
 	
-	// TODO 3: change the type of this variable to the name you're using for your
-	// User <-> ComputeEngine API; also update the parameter passed to the constructor
-	private final CoordinatorCompute coordinator;
+	private final CoordinatorImpl coordinator;
 
-	public TestUser(CoordinatorCompute coordinator) {
+	public TestUser(CoordinatorImpl coordinator) {
 		this.coordinator = coordinator;
 	}
 
@@ -21,11 +19,8 @@ public class TestUser {
 		char delimiter = ';';
 		String inputPath = "test" + File.separatorChar + "testInputFile.test";
 		
-		// TODO 4: Call the appropriate method(s) on the coordinator to get it to 
-		// run the compute job specified by inputPath, outputPath, and delimiter
-		ComputeRequest request= null;
-		ComputeResult Result = coordinator.compute(request);
-
+		ComputeRequest request = null;
+		ComputeResult coResult= coordinator.compute(request);
 	}
 
 }

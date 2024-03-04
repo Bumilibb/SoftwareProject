@@ -8,9 +8,14 @@ import org.mockito.Mockito;
 import src.ComputeEngine;
 import src.ComputeEngineImpl;
 import src.ComputeRequest;
+import src.DataStorageAPI;
+import src.ComputeResult;
 
 public class ComputeEngineIntegrationTest {
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testComputeWorkflow() {
 		
@@ -24,12 +29,12 @@ public class ComputeEngineIntegrationTest {
 		
 		// This is the actual object we're testing
 		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
-		when(mockRequest.getInputConfig()).thenReturn(30);
+		when(mockRequest.getInputConfig()).thenReturn(I);
 		//when(mockRequest.getOutputConfig()).thenReturn(output);
-		when(mockRequest.getDelimiter()).thenReturn(','); // Assuming the delimiter is for formatting output
+		when(mockRequest.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
 		
 	 // Execute the computation
-	 int[] actualPrimeFactors = engine.computePrimeFactors(mockRequest.getInputConfig());
+	 int[] actualPrimeFactors = engine.computePrimeFactors(1);
         
 	 // Define the expected prime factors for the input number 30
 	 int[] expectedPrimeFactors = {2, 3, 5};
