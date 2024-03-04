@@ -10,6 +10,7 @@ import src.ComputeEngineImpl;
 import src.ComputeRequest;
 import src.DataStorageAPI;
 import src.ComputeResult;
+import src.FileInputConfig;
 
 public class ComputeEngineIntegrationTest {
 
@@ -20,7 +21,8 @@ public class ComputeEngineIntegrationTest {
 	public void testComputeWorkflow() {
 		
 		ComputeEngine engine = new ComputeEngineImpl();
-		
+		FileInputConfig inputConfig = new FileInputConfig("path_to_file.txt");
+        ComputeRequest mockRequestObj = Mockito.mock(ComputeRequest.class);
 		TestDataStore testDs = new TestDataStore();
 
 		InMemoryInputConfig input = new InMemoryInputConfig(1, 10, 25);
@@ -28,10 +30,10 @@ public class ComputeEngineIntegrationTest {
 		InMemoryOutputConfig output = new InMemoryOutputConfig();
 		
 		// This is the actual object we're testing
-		ComputeRequest mockRequest = Mockito.mock(ComputeRequest.class);
-		when(mockRequest.getInputConfig()).thenReturn(I);
+	
+		when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
 		//when(mockRequest.getOutputConfig()).thenReturn(output);
-		when(mockRequest.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
+		when(mockRequestObj.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
 		
 	 // Execute the computation
 	 int[] actualPrimeFactors = engine.computePrimeFactors(1);
