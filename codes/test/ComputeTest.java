@@ -6,7 +6,6 @@ import src.ComputeEngine;
 import src.ComputeEngineImpl;
 
 public class ComputeTest {
-
 	@Test
 	public void smokeTestCompute() {
 		// The computation component has very simple inputs/outputs and no dependencies, so we can
