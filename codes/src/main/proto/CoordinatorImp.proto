@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+// Configuration for data paths involved in testing
+message TestDataConfiguration {
+  string inputFilePath = 1; // Location of the test input file
+  string outputFilePath = 2; // Location of the test output file
+}
+
+// Contains details for the coordinator implementation
+message CoordinatorImpl {
+  string executionFilePath = 1; // File path used for source code execution
+  TestDataConfiguration testPaths = 2; // Data paths for input and output during testing
+}
+
+// Defines services for coordinating computation tasks
+service ComputationCoordinator {
+  rpc InitializeComputation(ProcessSourceRequest) returns (ComputationOutcome);
+  rpc InitializeComputationWithCustomDelimiter(ProcessWithDelimiterRequest) returns (ComputationOutcome);
+  rpc AssignSource(ProcessSourceRequest) returns (SourceAssignmentResponse);
+}
+
+// Request structure to assign or confirm the source file
+message ProcessSourceRequest {
+  string sourceFile = 1; // The source file to be processed
+}
+
+// Response structure after assigning the source file
+message SourceAssignmentResponse {
+  string assignedFilePath = 1; // Confirms the file path that has been assigned
+}
+
+// Request to begin the computation, specifying a destination file
+message BeginComputationRequest {
+  string resultFilePath = 1; // Destination file path for storing results
+}
+
+// Extends computation start request to include a custom delimiter
+message ProcessWithDelimiterRequest {
+  string resultFilePath = 1; // File path for the results
+  string customDelimiter = 2; // A custom delimiter for processing data
+}
+
+// Outcome of the computation process
+message ComputationOutcome {
+  bool completedSuccessfully = 1; // Indicates success or failure
+  string feedbackMessage = 2; // Feedback or error message
+  string computationDetails = 3; // Detailed results or computation data
+}
