@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+service StorageComputationService {
+
+  // Receives a numerical input from the user
+  rpc getInput(UserInput) returns (NumericSequence) {}
+
+  // Commits the processed data to the specified location
+  rpc commit(CommitParameters) returns (CommitResponse) {}
+
+} //
+
+message NumericSequence {
+  // List of integer values
+  repeated int32 numbers = 1;
+}
+
+message CommitParameters {
+  // Large integer value
+  optional LargeInt bigInteger = 1;
+  // Selected separator for data formatting
+  optional Separator separator = 2;
+  // User's chosen storage location
+  optional StorageTarget storageTarget = 3;
+}
+
+message LargeInt {
+  // The large integer value
+  optional int64 bigValue = 1;
+}
+
+// Acknowledgement of the commit operation
+message CommitResponse {
+  // Optionally, include fields that might be useful for the response
+}
+
+// User input could contain any form of data the user is expected to input
+message UserInput {
+  // if user will input a single integer number
+  int32 number = 1;
+}
+
+// Separator could be a string that is used to separate data in the output format
+message Separator {
+  // The actual string used as a separator, e.g., ",", "|", etc.
+  string delimiter = 1;
+}
+
+// StorageTarget could define where the user wants to store the output
+message StorageTarget {
+  // This could be a file path, a database key, etc.
+  string destination = 1;
+}
