@@ -1,4 +1,4 @@
-package src;
+package userInterface;
 
 
 public class FileInputConfig implements InputConfig {

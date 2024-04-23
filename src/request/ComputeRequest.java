@@ -1,4 +1,4 @@
-lpackage src;
+package request;
 
 public interface ComputeRequest {
 	InputConfig getInputConfig();

@@ -1,12 +1,11 @@
-
-package src;
+ package userInterface;
 
 public interface InputConfig {
     
 
 	// Use generics to allow callers to specify a return type when they visit the input data
 	static interface InputConfigVisitor<T> {
-		public T visitFile(FileInputConfig fileInputConfig);
+		public T visitFile(userInterface.FileInputConfig fileInputConfig);
 	}
 	
 	static <T> T visitInputConfig(InputConfig config, InputConfigVisitor<T> visitor) {
