@@ -1,4 +1,4 @@
-package src;
+package result;
 
 public class ComputeResultImpl implements ComputeResult {
 

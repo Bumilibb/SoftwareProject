@@ -1,4 +1,4 @@
-package test;
+package computeEngineTests;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

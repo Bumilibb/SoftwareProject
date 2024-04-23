@@ -1,4 +1,4 @@
-package test;
+package userInterfaceTests;
 
 import java.io.File;
 import src.CoordinatorImpl;

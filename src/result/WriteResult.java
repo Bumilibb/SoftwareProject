@@ -1,9 +1,9 @@
-package src;
+package result;
 public interface WriteResult {
 	WriteResultStatus getStatus();
 	
-	public static enum WriteResultStatus {
+	enum WriteResultStatus {
 		SUCCESS,
-		FAILURE;
-	}
+		FAILURE
+    }
 }

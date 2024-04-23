@@ -1,9 +1,9 @@
-package src;
+package request;
 
 public class ComputeRequestImpl implements ComputeRequest{
 
-    private InputConfig inputConfig;
-    private char delimiter;
+    private final InputConfig inputConfig;
+    private final char delimiter;
 
     public ComputeRequestImpl(InputConfig inputConfig, char delimiter) {
         this.inputConfig = inputConfig;

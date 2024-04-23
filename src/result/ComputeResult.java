@@ -1,14 +1,14 @@
-package src;
+package result;
 
 public interface ComputeResult {
-	static ComputeResult SUCCESS = () -> Status.SUCCESS;
-	static ComputeResult FAILURE = () -> Status.FAILURE;
+	ComputeResult SUCCESS = () -> Status.SUCCESS;
+	ComputeResult FAILURE = () -> Status.FAILURE;
 
 	Status getStatus();
 	
-	public static enum Status {
+	enum Status {
 		SUCCESS,
 		FAILURE,
-		NOT_AN_INTEGER;
-	}
+		NOT_AN_INTEGER
+    }
 }

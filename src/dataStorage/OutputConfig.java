@@ -1,9 +1,9 @@
 
-package src;
+package dataStorage;
 public interface OutputConfig {
 
-	static interface OutputConfigVisitor {
-		public void visitFile(FileOutputConfig fileOutputConfig);
+	interface OutputConfigVisitor {
+		void visitFile(FileOutputConfig fileOutputConfig);
 	}
 	
 	static void visitOutputConfig(OutputConfig config, OutputConfigVisitor visitor) {

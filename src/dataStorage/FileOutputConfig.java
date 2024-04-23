@@ -1,4 +1,4 @@
-package src;
+package dataStorage;
 
 public class FileOutputConfig implements OutputConfig {
 	

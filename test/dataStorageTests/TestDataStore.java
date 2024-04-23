@@ -1,4 +1,4 @@
-package test;
+package dataStorageTests;
 import src.DataStore;
 import src.InputConfig;
 import src.OutputConfig;
