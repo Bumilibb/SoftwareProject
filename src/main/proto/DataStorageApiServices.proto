@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package datastorageapiservices;
+
 service StorageComputationService {
 
   // Receives a numerical input from the user

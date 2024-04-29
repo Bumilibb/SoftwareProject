@@ -1,5 +1,6 @@
 package datastorage;
 
+import datastorageapiservices.DataStorageApiServices;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -9,22 +10,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataStorageAPI extends StorageComputationServiceGrpc.StorageComputationServiceImplBase {
+import static datastorageapiservices.StorageComputationServiceGrpc.StorageComputationServiceImplBase;
+
+public class DataStorageAPI extends StorageComputationServiceImplBase {
 
     // Implement the rpc methods defined in .proto//
     @Override
-    public void getInput(DataStorageApi.UserInput request, StreamObserver<DataStorageApi.NumericSequence> responseObserver) {
+    public void getInput(DataStorageApiServices.UserInput request, StreamObserver<DataStorageApiServices.NumericSequence> responseObserver) {
         // Implement your logic here to read numbers based on UserInput
         // For example, let's read a single number and return it in a list
         List<Integer> numbers = new ArrayList<>();
         numbers.add(request.getNumber());
-        DataStorageApi.NumericSequence reply = DataStorageApi.NumericSequence.newBuilder().addAllNumbers(numbers).build();
+        DataStorageApiServices.NumericSequence reply = DataStorageApiServices.NumericSequence.newBuilder().addAllNumbers(numbers).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
 
     @Override
-    public void commit(DataStorageApi.CommitParameters request, StreamObserver<DataStorageApi.CommitResponse> responseObserver) {
+    public void commit(DataStorageApiServices.CommitParameters request, StreamObserver<DataStorageApiServices.CommitResponse> responseObserver) {
         // Implement your logic here to write numbers to the destination with the specified separator
         // For example, let's write the large integer to the specified file
         writeToFile(request.getStorageTarget().getDestination(),
@@ -32,7 +35,7 @@ public class DataStorageAPI extends StorageComputationServiceGrpc.StorageComputa
                 request.getSeparator().getDelimiter());
 
         // Assume the write operation was successful and send a response
-        DataStorageApi.CommitResponse reply = DataStorageApi.CommitResponse.newBuilder().build();
+        DataStorageApiServices.CommitResponse reply = DataStorageApiServices.CommitResponse.newBuilder().build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }

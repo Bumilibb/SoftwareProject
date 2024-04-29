@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package coordinatorimplservices;
+
 // Configuration for data paths involved in testing
 message TestDataConfiguration {
   string inputFilePath = 1; // Location of the test input file
@@ -7,7 +9,7 @@ message TestDataConfiguration {
 }
 
 // Contains details for the coordinator implementation /
-message CoordinatorImpl {
+message CoordinatorImplMessage {
   string executionFilePath = 1; // File path used for source code execution
   TestDataConfiguration testPaths = 2; // Data paths for input and output during testing
 }
