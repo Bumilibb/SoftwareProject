@@ -1,4 +1,4 @@
-package computeEngine;
+package computeengine;
 
 public interface ComputeEngine {
 	int[] computePrimeFactors(int i);

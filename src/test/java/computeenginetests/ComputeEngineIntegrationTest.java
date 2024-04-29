@@ -1,12 +1,11 @@
-package computeEngineTests;
-import static org.mockito.Mockito.when;
+package computeenginetests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import request.ComputeRequest;
-import userInterface.FileInputConfig;
-import userInterface.InputConfig;
+import userinterface.FileInputConfig;
+import userinterface.InputConfig;
 
 
 public class ComputeEngineIntegrationTest {

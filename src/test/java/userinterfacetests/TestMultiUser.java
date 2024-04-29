@@ -1,4 +1,4 @@
-package userInterfaceTests;
+package userinterfacetests;
 
 import src.CoordinatorImpl;
 import src.DataStorageAPI;

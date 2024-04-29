@@ -1,5 +1,5 @@
 
-package dataStorage;
+package datastorage;
 public interface OutputConfig {
 
 	interface OutputConfigVisitor {

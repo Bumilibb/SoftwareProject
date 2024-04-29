@@ -1,7 +1,10 @@
-package computeEngine;
+package computeengine;
 
 
-public class ComputeEngineImpl implements ComputeEngine, ComputationCoordinator {
+import request.ComputeRequest;
+import result.ComputeResult;
+
+public class ComputeEngineImpl implements computeengine.ComputeEngine, computeengine.ComputationCoordinator {
 
 	@Override
 	public int[] computePrimeFactors(int value) {
@@ -52,7 +55,4 @@ public class ComputeEngineImpl implements ComputeEngine, ComputationCoordinator 
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'compute'");
     }
-
-   
-
 }

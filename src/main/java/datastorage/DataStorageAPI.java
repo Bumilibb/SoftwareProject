@@ -1,4 +1,4 @@
-package dataStorage;
+package datastorage;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -6,8 +6,6 @@ import io.grpc.stub.StreamObserver;
 import src.StorageComputationServiceGrpc.StorageComputationServiceImplBase;
 import src.StorageComputationServiceOuterClass.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

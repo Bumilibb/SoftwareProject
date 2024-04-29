@@ -1,7 +1,7 @@
 package request;
 
-import dataStorage.OutputConfig;
-import userInterface.InputConfig;
+import datastorage.OutputConfig;
+import userinterface.InputConfig;
 
 public interface ComputeRequest {
 	InputConfig getInputConfig();

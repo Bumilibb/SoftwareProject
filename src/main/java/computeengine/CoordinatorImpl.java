@@ -1,7 +1,7 @@
-package computeEngine;
+package computeengine;
 
 import io.grpc.stub.StreamObserver;
-import your.generated.proto.package.ComputationCoordinatorGrpc;
+package.ComputationCoordinatorGrpc;
 import your.generated.proto.package.Coordinate.*;
 
 public class ComputationCoordinatorImpl extends ComputationCoordinatorGrpc.ComputationCoordinatorImplBase {

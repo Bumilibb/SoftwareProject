@@ -1,8 +1,9 @@
-package userInterface;
+package userinterface;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class UserInterface {
 
@@ -13,7 +14,7 @@ public class UserInterface {
 
             // Here you would call the Compute Engine's gRPC service and pass the number
             // For now, let's simulate it with a direct method call.
-            ComputeEngine engine = new ComputeEngine();
+            computeengine.ComputeEngine engine = new computeengine.ComputeEngine();
             List<Long> primeFactors = engine.calculatePrimeFactors(number);
 
             // Save the prime factors to a file

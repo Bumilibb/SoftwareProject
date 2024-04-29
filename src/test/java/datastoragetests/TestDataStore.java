@@ -1,11 +1,10 @@
-package dataStorageTests;
+package datastoragetests;
 import src.DataStore;
 import src.InputConfig;
 import src.OutputConfig;
 import src.WriteResult;
 
-import org.junit.jupiter.api.Test;
-/** 
+/**
  * Test-only implementation of DataStore that handles in-memory inputs and outputs
  */
 public class TestDataStore implements DataStore{
