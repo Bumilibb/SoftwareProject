@@ -1,8 +1,10 @@
 package computeengine;
 
 
+import datastorage.DataStorageAPI;
 import request.ComputeRequest;
 import result.ComputeResult;
+import userinterface.InputConfig;
 
 public class ComputeEngineImpl implements computeengine.ComputeEngine, computeengine.ComputationCoordinator {
 
@@ -44,9 +46,9 @@ public class ComputeEngineImpl implements computeengine.ComputeEngine, computeen
 	@Override
 	public ComputeResult compute(ComputeRequest request) {
 		@SuppressWarnings("unused")
-		DataStorageAPI dataStore = new DataStorageAPI();
+        DataStorageAPI dataStore = new DataStorageAPI();
 		@SuppressWarnings("unused")
-		InputConfig inputConfig = request.getInputConfig();
+        InputConfig inputConfig = request.getInputConfig();
 		return null;
 	}
    

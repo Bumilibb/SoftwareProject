@@ -6,15 +6,40 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
+def grpcVersion = '1.59.1'
+def protobufVersion = '3.25.1'
+
+protobuf {
+	protoc {
+		artifact = "com.google.protobuf:protoc:${protobufVersion}"
+	}
+	plugins {
+		grpc {
+			artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+		}
+	}
+	generateProtoTasks {
+		all()*.plugins {
+			grpc {}
+		}
+	}
+}
+
+idea {
+	module {
+		sourceDirs += file("${projectDir}/build/generated/source/proto/main/java");
+		sourceDirs += file("${projectDir}/build/generated/source/proto/main/grpc");
+	}
+}
+
 sourceSets {
 	main {
 		java {
-			srcDirs = ['build/generated/source/proto/main/grpc',
-					   'build/generated/source/proto/main/java']
-		}
-	}
-	test {
-		java {
+			srcDirs = [
+					'build/generated/source/proto/main/java',
+					'build/generated/source/proto/main/grpc',
+					'src/main/java',
+			]
 		}
 	}
 }
@@ -27,9 +52,6 @@ test {
 	useJUnitPlatform()
 }
 
-def grpcVersion = '1.59.1'
-def protobufVersion = '3.25.1'
-def protocVersion = protobufVersion
 
 dependencies {
 	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
@@ -45,14 +67,4 @@ dependencies {
 	testImplementation('junit:junit:4.12')
 	testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 	testImplementation('org.mockito:mockito-core:5.10.0')
-}
-
-protobuf {
-	protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
-	plugins {
-		grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
-	}
-	generateProtoTasks {
-		all()*.plugins { grpc {} }
-	}
 }

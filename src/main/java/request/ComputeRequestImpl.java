@@ -1,7 +1,9 @@
 package request;
 
-public class ComputeRequestImpl implements ComputeRequest{
+import datastorage.OutputConfig;
+import userinterface.InputConfig;
 
+public class ComputeRequestImpl implements ComputeRequest {
     private final InputConfig inputConfig;
     private final char delimiter;
 
@@ -12,7 +14,7 @@ public class ComputeRequestImpl implements ComputeRequest{
 
     @Override
     public InputConfig getInputConfig() {
-         return this.inputConfig;
+        return this.inputConfig;
     }
 
     @Override
@@ -24,25 +26,22 @@ public class ComputeRequestImpl implements ComputeRequest{
     public char getDelimiter() {
         return this.delimiter;
     }
+
     @Override
-	public String getInput() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+    public String getInput() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public char getDelimeter() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public char getDelimeter() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-
-
-	@Override
-	public String getOutput() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+    @Override
+    public String getOutput() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

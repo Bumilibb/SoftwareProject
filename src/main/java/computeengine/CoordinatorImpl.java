@@ -1,20 +1,20 @@
 package computeengine;
 
 import io.grpc.stub.StreamObserver;
-package.ComputationCoordinatorGrpc;
-import your.generated.proto.package.Coordinate.*;
 
-public class ComputationCoordinatorImpl extends ComputationCoordinatorGrpc.ComputationCoordinatorImplBase {
+import java.util.Arrays;
+
+public class CoordinatorImpl extends ComputationCoordinatorGrpc.ComputationCoordinatorImplBase {
 
 	private final ComputeEngineImpl computeEngineImpl;
 
-	public ComputationCoordinatorImpl(ComputeEngineImpl computeEngineImpl) {
+	public CoordinatorImpl(ComputeEngineImpl computeEngineImpl) {
 		this.computeEngineImpl = computeEngineImpl;
 	}
 	@Override
-	public void initializeComputation(ProcessSourceRequest request, StreamObserver<ComputationOutcome> responseObserver) {
+	public void initializeComputation(CoordinatorImplOuterClass.ProcessSourceRequest request, StreamObserver<CoordinatorImplOuterClass.ComputationOutcome> responseObserver) {
 		try {
-			int number = Integer.parseInt(request.getSourceFilePath()); // Assuming the number is passed as a string
+			int number = Integer.parseInt(request.getSourceFile()); // Assuming the number is passed as a string
 			int[] factors = computeEngineImpl.computePrimeFactors(number);
 
 			// Format the factors as a string
@@ -22,7 +22,7 @@ public class ComputationCoordinatorImpl extends ComputationCoordinatorGrpc.Compu
 
 			// Here you would typically save the result to data storage and return the path to the saved data
 			// For simplicity, we're just returning the result directly
-			ComputationOutcome outcome = ComputationOutcome.newBuilder()
+			CoordinatorImplOuterClass.ComputationOutcome outcome = CoordinatorImplOuterClass.ComputationOutcome.newBuilder()
 					.setCompletedSuccessfully(true)
 					.setFeedbackMessage("Computation completed successfully.")
 					.setComputationDetails("Prime factors: " + result)
@@ -36,9 +36,9 @@ public class ComputationCoordinatorImpl extends ComputationCoordinatorGrpc.Compu
 	}
 
 	@Override
-	public void initializeComputationWithCustomDelimiter(ProcessWithDelimiterRequest request, StreamObserver<ComputationOutcome> responseObserver) {
+	public void initializeComputationWithCustomDelimiter(CoordinatorImplOuterClass.ProcessWithDelimiterRequest request, StreamObserver<CoordinatorImplOuterClass.ComputationOutcome> responseObserver) {
 		// Implement computation with custom delimiter here
-		ComputationOutcome outcome = ComputationOutcome.newBuilder()
+		CoordinatorImplOuterClass.ComputationOutcome outcome = CoordinatorImplOuterClass.ComputationOutcome.newBuilder()
 				.setCompletedSuccessfully(true)
 				.setFeedbackMessage("Computation with custom delimiter initialized successfully.")
 				.setComputationDetails("Details of the computation with custom delimiter.")
@@ -48,9 +48,9 @@ public class ComputationCoordinatorImpl extends ComputationCoordinatorGrpc.Compu
 	}
 
 	@Override
-	public void assignSource(ProcessSourceRequest request, StreamObserver<SourceAssignmentResponse> responseObserver) {
+	public void assignSource(CoordinatorImplOuterClass.ProcessSourceRequest request, StreamObserver<CoordinatorImplOuterClass.SourceAssignmentResponse> responseObserver) {
 		// Implement source assignment logic here
-		SourceAssignmentResponse response = SourceAssignmentResponse.newBuilder()
+		CoordinatorImplOuterClass.SourceAssignmentResponse response = CoordinatorImplOuterClass.SourceAssignmentResponse.newBuilder()
 				.setAssignedFilePath("Path to the assigned file")
 				.build();
 		responseObserver.onNext(response);

@@ -1,14 +1,15 @@
 package userinterfacetests;
 
+import computeengine.ComputeEngineImpl;
 import request.ComputeRequest;
 import result.ComputeResult;
 
 import java.io.File;
 
 public class TestUser {
-    private final CoordinatorImplOuterClass.CoordinatorImpl coordinator;
+    private final ComputeEngineImpl coordinator;
 
-    public TestUser(CoordinatorImplOuterClass.CoordinatorImpl coordinator) {
+    public TestUser(ComputeEngineImpl coordinator) {
         this.coordinator = coordinator;
     }
 

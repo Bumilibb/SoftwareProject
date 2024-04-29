@@ -1,14 +1,15 @@
 package datastoragetests;
-import src.DataStore;
-import src.InputConfig;
-import src.OutputConfig;
-import src.WriteResult;
+
+import datastorage.DataStore;
+import datastorage.OutputConfig;
+import result.WriteResult;
+import userinterface.InputConfig;
+import userinterfacetests.InMemoryInputConfig;
 
 /**
  * Test-only implementation of DataStore that handles in-memory inputs and outputs
  */
-public class TestDataStore implements DataStore{
-
+public class TestDataStore implements DataStore {
 	@Override
 	public Iterable<Integer> read(InputConfig input) {
 		// Test code is allowed to assume it's getting the right types; this will fail with a ClassCastException if it gets

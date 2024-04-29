@@ -1,8 +1,9 @@
 package datastoragetests;
+
+import datastorage.OutputConfig;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import src.OutputConfig;
 
 public class InMemoryOutputConfig implements OutputConfig {
 	
