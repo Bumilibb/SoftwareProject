@@ -29,15 +29,15 @@ public class ComputeEngineIntegrationTest {
 		// This is the actual object we're testing
 
 	
-		when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
+		Mockito.when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
 
 		
 		
-		when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
+		Mockito.when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
 
 
 		//when(mockRequest.getOutputConfig()).thenReturn(output);
-		when(mockRequestObj.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
+		Mockito.when(mockRequestObj.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
 		
 	 // Execute the computation
 	 int[] actualPrimeFactors = engine.computePrimeFactors(1);

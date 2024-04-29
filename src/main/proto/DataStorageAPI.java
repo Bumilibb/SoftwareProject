@@ -62,4 +62,7 @@ public class DataStorageAPI extends StorageComputationServiceImplBase {
 		System.out.println("Server started, listening on " + port);
 		server.awaitTermination();
 	}
+	public void do(){
+		TestProtoService testP = new TestProtoService();
+			}
 }

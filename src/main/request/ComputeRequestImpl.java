@@ -16,6 +16,11 @@ public class ComputeRequestImpl implements ComputeRequest{
     }
 
     @Override
+    public OutputConfig getOutputConfig() {
+        return null;
+    }
+
+    @Override
     public char getDelimiter() {
         return this.delimiter;
     }
