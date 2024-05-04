@@ -29,15 +29,10 @@ public class ComputeRequestImpl implements ComputeRequest {
 
     @Override
     public String getInput() {
-        // TODO Auto-generated method stub
-        return null;
+
+        return "Placeholder input ";
     }
 
-    @Override
-    public char getDelimeter() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 
     @Override
     public String getOutput() {

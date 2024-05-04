@@ -3,12 +3,14 @@ package computeenginetests;
 import computeengine.ComputeEngine;
 import computeengine.ComputeEngineImpl;
 import datastoragetests.TestDataStore;
-import org.junit.jupiter.api.Assertions;
+import  org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import request.ComputeRequest;
 import userinterface.FileInputConfig;
 import userinterface.InputConfig;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ComputeEngineIntegrationTest {
     @Test
@@ -27,11 +29,11 @@ public class ComputeEngineIntegrationTest {
         Mockito.when(mockRequestObj.getInputConfig()).thenReturn(inputConfig);
 
         //when(mockRequest.getOutputConfig()).thenReturn(output);
-        Mockito.when(mockRequestObj.getDelimeter()).thenReturn(','); // Assuming the delimiter is for formatting output
+        Mockito.when(mockRequestObj.getDelimiter()).thenReturn(','); // Assuming the delimiter is for formatting output
 
         // Execute the computation
         ComputeEngine engine = new ComputeEngineImpl();
-        int[] actualPrimeFactors = engine.computePrimeFactors(1);
+        int[] actualPrimeFactors = engine.computePrimeFactors(30);
 
         // Define the expected prime factors for the input number 30
         int[] expectedPrimeFactors = {2, 3, 5};

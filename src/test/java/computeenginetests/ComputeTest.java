@@ -5,6 +5,8 @@ import computeengine.ComputeEngineImpl;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ComputeTest {
 	@Test
 	public void smokeTestCompute() {
@@ -13,6 +15,9 @@ public class ComputeTest {
 		
 		ComputeEngine engine = new ComputeEngineImpl();
 
+		for (int i = 0; i < 1000000; i++) {
+			engine.computePrimeFactors(ThreadLocalRandom.current().nextInt(10, 100));
+		}
 		  // Testing the computePrimeFactors for the value 1, expecting an empty array since 1 has no prime factors
         Assert.assertArrayEquals(new int[]{}, engine.computePrimeFactors(1));
 

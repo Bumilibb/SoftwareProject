@@ -4,14 +4,13 @@ import datastorage.OutputConfig;
 import userinterface.InputConfig;
 
 public interface ComputeRequest {
-	InputConfig getInputConfig();
-	OutputConfig getOutputConfig();
+    InputConfig getInputConfig();
 
-	char getDelimiter();
+    OutputConfig getOutputConfig();
 
-	String getInput();
+    char getDelimiter();
 
-	char getDelimeter();
+    String getInput();
 
-	String getOutput();
+    String getOutput();
 }

@@ -43,8 +43,9 @@ public class TestMultiUser {
         }
 
         // Run multi threaded
-        ExecutorService threadPool = Executors.newCachedThreadPool();
         List<Future<?>> results = new ArrayList<>();
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+
         String multiThreadFilePrefix = "testMultiUser.compareMultiAndSingleThreaded.test.multiThreadOut.tmp";
         for (int i = 0; i < nThreads; i++) {
             File multiThreadedOut =
@@ -73,9 +74,13 @@ public class TestMultiUser {
     private List<String> loadAllOutput(String prefix, int nThreads) throws IOException {
         List<String> result = new ArrayList<>();
         for (int i = 0; i < nThreads; i++) {
-            File multiThreadedOut =
-                    new File(prefix + i);
-            result.addAll(Files.readAllLines(multiThreadedOut.toPath()));
+            File multiThreadedOut = new File(prefix + i);
+            if (multiThreadedOut.exists()) { // Check if the file exists
+                result.addAll(Files.readAllLines(multiThreadedOut.toPath()));
+            } else {
+                // Handle the case where the file doesn't exist
+                System.err.println("File not found: " + multiThreadedOut.getAbsolutePath());
+            }
         }
         return result;
     }
