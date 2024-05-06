@@ -2,8 +2,8 @@ package result;
 
 public interface ComputeResult {
 	ComputeResult SUCCESS = () -> Status.SUCCESS;
-	ComputeResult FAILURE = () -> Status.FAILURE;
-
+	ComputeResult FAIL = () -> Status.FAILURE;
+	ComputeResult Not = () -> Status.NOT_AN_INTEGER;
 	Status getStatus();
 	
 	enum Status {

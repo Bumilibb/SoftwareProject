@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import result.WriteResult;
 import userinterface.InputConfig;
+import userinterfacetests.InMemoryInputConfig;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +16,7 @@ public class TestDataStorageAPI {
 	@Test
 	public void smokeTestRead() {
 		// While there aren't any dependencies for this component, we can mock out the parameters
-		InputConfig inputConfig = Mockito.mock(InputConfig.class);
+		InputConfig inputConfig = new InMemoryInputConfig(1,2,3);
 
 		// TODO instantiating a TestDataStore because the actual implementation of DataStore is MIA
 		// Fix this test after it is found/created
@@ -28,7 +29,7 @@ public class TestDataStorageAPI {
 
 	@Test
 	public void smokeTestWrite() {
-		OutputConfig outputConfig = Mockito.mock(OutputConfig.class);
+		OutputConfig outputConfig = new InMemoryOutputConfig();
 
 		// TODO instantiating a TestDataStore because the actual implementation of DataStore is MIA
 		// Fix this test after it is found/created

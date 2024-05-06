@@ -1,21 +1,24 @@
 package computeengine;
 
 
-import datastorage.DataStorageAPI;
 import request.ComputeRequest;
 import result.ComputeResult;
-import userinterface.InputConfig;
 
 public class ComputeEngineImpl implements computeengine.ComputeEngine, computeengine.ComputationCoordinator {
 
-	@Override
-	public int[] computePrimeFactors(int value) {
-		return primeFactors(value);
-	}
+    @Override
+    public int[] computePrimeFactors(int value) {
+        return primeFactors(value);
+    }
 
-	public int[] primeFactors(int number) { //
+    @Override
+    public String compute(int val) {
+        return "";
+    }
+
+    public int[] primeFactors(int number) { //
         int[] tempFactors = new int[number];
-		int count = 0; // Count of prime factors
+        int count = 0; // Count of prime factors
 
         // Divide by 2 to find even prime factors
         while (number % 2 == 0) {
@@ -23,7 +26,7 @@ public class ComputeEngineImpl implements computeengine.ComputeEngine, computeen
             number /= 2;
         }
 
-		// Find odd prime factors
+        // Find odd prime factors
         for (int i = 3; i <= Math.sqrt(number); i += 2) {
             while (number % i == 0) {
                 tempFactors[count++] = i;
@@ -43,18 +46,31 @@ public class ComputeEngineImpl implements computeengine.ComputeEngine, computeen
         return primeFactors;
     }
 
-	@Override
-	public ComputeResult compute(ComputeRequest request) {
-		@SuppressWarnings("unused")
-        DataStorageAPI dataStore = new DataStorageAPI();
-		@SuppressWarnings("unused")
-        InputConfig inputConfig = request.getInputConfig();
-		return null;
-	}
-   
     @Override
-    public String compute(int val) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compute'");
+    public ComputeResult compute(ComputeRequest request) {
+        String valStr = request.getInput();
+        int value;
+        try {
+            value = Integer.parseInt(valStr);
+        } catch (NumberFormatException e) {
+            // If parsing fails, return NOT_AN_INTEGER
+            return ComputeResult.Not;
+        }
+
+
+        int[] primeFactors = computePrimeFactors(value);
+
+        if (primeFactors.length > 0) {
+            return ComputeResult.SUCCESS;
+        }
+
+        return ComputeResult.FAIL;
     }
-}
+
+
+    }
+
+
+
+
+
