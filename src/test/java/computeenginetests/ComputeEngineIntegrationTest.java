@@ -10,7 +10,7 @@ import request.ComputeRequest;
 import userinterface.FileInputConfig;
 import userinterface.InputConfig;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 public class ComputeEngineIntegrationTest {
     @Test
