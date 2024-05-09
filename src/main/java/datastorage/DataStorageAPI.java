@@ -1,5 +1,6 @@
 package datastorage;
 
+import computeengine.ComputeEngineImpl;
 import datastorageapiservices.DataStorageApiServices;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -17,10 +18,19 @@ public class DataStorageAPI extends StorageComputationServiceImplBase {
     // Implement the rpc methods defined in .proto//
     @Override
     public void getInput(DataStorageApiServices.UserInput request, StreamObserver<DataStorageApiServices.NumericSequence> responseObserver) {
+
         // Implement your logic here to read numbers based on UserInput
         // For example, let's read a single number and return it in a list
+        int userInputNumber = request.getNumber();
         List<Integer> numbers = new ArrayList<>();
-        numbers.add(request.getNumber());
+        numbers.add(userInputNumber);
+
+        ComputeEngineImpl engine = new ComputeEngineImpl();
+        for (int i : engine.computePrimeFactors(userInputNumber)) {
+            numbers.add(i);
+        }
+
+
         DataStorageApiServices.NumericSequence reply = DataStorageApiServices.NumericSequence.newBuilder().addAllNumbers(numbers).build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
